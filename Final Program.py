@@ -223,8 +223,10 @@ def another_calc_linear_decking():
                                   f"another calculation? (input '1' or '2') "))
       
       #checking desired_calculation is a number
-      while (another_calc_Ld > 1) or (another_calc_Ld < 2):
+      while (another_calc_Ld < 1) or (another_calc_Ld > 2):
+           print(' ')
            print("Invalid input, please input either '1' or '2'..")
+           print(' ')
            another_calc_Ld = int(input(f"Would you like to complete "
                                   f"another calculation? (input '1' or '2') "))
 
@@ -877,7 +879,7 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
       another_calc_Ld = int(input(f"Would you like to complete another "
                                   f"calculation? (input '1' or '2') "))
                                                                                     #this doesn't work (keeps reasking even if '1' or '2' is inputted)
-      while (another_calc_Ld > 1) or (another_calc_Ld < 2):
+      while (another_calc_Ld < 1) or (another_calc_Ld > 2):
            print(' ')
            print("Invalid input, please input either '1' or '2'..")
            print(' ')
