@@ -870,7 +870,8 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
       print(' ')
       print('Next options:')
       print(' ')
-      print('1. Calulate another stud length (just like you did)')
+      print(f'1. Calculate another amount of linear metres of decking '
+            f'required (just like you did)')
       print('2. Back to main menu')
       print(' ')
       another_calc_Ld = int(input(f"Would you like to complete another "
