@@ -10,8 +10,10 @@ def invalid_negetive():
 
 #Main Program
 def main_program_1st_display():
-    print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-          f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+    print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+          f'☲☲☲'
+          f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+          f'☲')
     print(' ')
 
     print('Welcome to the program!!')
@@ -19,7 +21,8 @@ def main_program_1st_display():
 
     print(f'How to use the program: You’ll notice that all items in the lists '
           f'shown are numbered, when asked for what you’d like to complete '
-          f'please enter the corresponding number to the operation you’d like.')
+          f'please enter the corresponding number to the operation you’d '
+          f'like.')
     print(' ')
     print('Operations avaliable: ')
     print(' ')
@@ -37,8 +40,20 @@ def main_program_1st_display():
     print('5. Exit ')
     print(' ')
 
-    desired_calculation = int(input(f'What calculation would you like to '
+    desired_calculation = (input(f'What calculation would you like to '
                                     f'complete from the list/s? '))
+    
+    
+    #checking desired_calculation is a number
+    while not desired_calculation.isdigit():
+      print(' ')
+      print('Invalid input, please input a positive integer value.. ')
+      print(' ')
+      desired_calculation = (input(f'What calculation would you like to '
+                                    f'complete from the list/s? '))
+    desired_calculation = int(desired_calculation)
+
+
 
     return desired_calculation
 
@@ -73,20 +88,71 @@ def linear_metres_decking_required():
       print(' ')
       deck_num = input(f'What number deck are you calculating '
                        f'the linear metres of decking required for? ')
+
+          #checking is a number
+      while not deck_num.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+            deck_num = (input(f'What number deck are you calculating '
+                       f'the linear metres of decking required for? '))
+      deck_num = float(deck_num)
+
       print(' ')
-      width = float(input(f"What is the width of the decking boards "
+      width = (input(f"What is the width of the decking boards "
                         f"you're going to be using (units: millimetres)? "))
+#checking is a number
+      while not width.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+            width = (input(f"What is the width of the decking boards "
+                        f"you're going to be using (units: millimetres)? "))
+      width = float(width)
       print(' ')
-      gap = float(input(f'What is the width of the gap between the '
+
+      gap = (input(f'What is the width of the gap between the '
                         f'decking boards horizontally (units: '
                         f'millimetres)? '))
-      print('')
-      deck_width = float(input(f'What is the width of the overall '
-                              f'(whole) deck (units: metres)? '))
+      
+#checking is a number
+      while not gap.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+            gap = (input(f'What is the width of the gap between the '
+                        f'decking boards horizontally (units: '
+                        f'millimetres)? '))
+      gap = float(gap)
+
       print(' ')
-      deck_length = float(input(f'What is the length of the overall '
+
+      deck_width = (input(f'What is the width of the overall '
                               f'(whole) deck (units: metres)? '))
+      
+#checking is a number
+      while not deck_width.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+            deck_width = (input(f'What is the width of the overall '
+                              f'(whole) deck (units: metres)? '))
+      deck_width = float(deck_width)
+
       print(' ')
+      deck_length = (input(f'What is the length of the overall '
+                              f'(whole) deck (units: metres)? '))
+
+#checking is a number
+      while not deck_length.isdigit():
+            print(' ')
+            print('Invalid input, please input an integer value.. ')
+            print(' ')
+            deck_length = (input(f'What is the length of the overall '
+                              f'(whole) deck (units: metres)? '))
+      deck_length = float(deck_length)
+      print(' ')
+
       print(f'------------------------------------------'
             f'-----------------------------')
       print(' ')
@@ -95,15 +161,25 @@ def linear_metres_decking_required():
             f'recommended with 10% usually being a great allowance. '
             f'At least greater then zero**')
       print(' ')
-      waste_percentage_num = float(input(f'What is the waste percentage '
+      waste_percentage_num = (input(f'What is the waste percentage '
                                     f'number you would like to allow '
                                     f'(units: percentage)? '))
+#checking is a number
+      while not waste_percentage_num.isdigit():
+            print(' ')
+            print('Invalid input, please input an integer value.. ')
+            print(' ')
+            waste_percentage_num = (input(f'What is the waste percentage '
+                                    f'number you would like to allow '
+                                    f'(units: percentage)? '))
+      waste_percentage_num = float(waste_percentage_num)
       while waste_percentage_num <= 0:
                   invalid_negetive()
                   waste_percentage_num = float(input(f'What is the '
                                                      f'waste percentage '
                                     f'number you would like to allow '
                                     f'(units: percentage)? '))
+
 
 
       os.system('cls')
@@ -145,6 +221,14 @@ def another_calc_linear_decking():
       print('2. Back to main menu')
       another_calc_Ld = int(input(f"Would you like to complete "
                                   f"another calculation? (input '1' or '2') "))
+      
+      #checking desired_calculation is a number
+      while (another_calc_Ld > 1) or (another_calc_Ld < 2):
+           print("Invalid input, please input either '1' or '2'..")
+           another_calc_Ld = int(input(f"Would you like to complete "
+                                  f"another calculation? (input '1' or '2') "))
+
+
       return another_calc_Ld
 
 #for stud bit
@@ -730,6 +814,7 @@ def what_shape_invalid():
       what_shape = int(what_shape)
       return what_shape
 
+
 #exit/goodbye ("6. Exit")
 def goodbye_exit_screen():
     os.system('cls')
@@ -764,10 +849,11 @@ finalreport = {}
 
 desired_calculation = main_program_1st_display()
 
+
 #invalid ans        works
 while (desired_calculation < 1) or (desired_calculation >= 6): 
       desired_calculation = desired_calculation_invalid()  
-
+      
 while desired_calculation != 5:     #as long as it isn't '6' it does this
     print(' ')
     os.system('cls')
@@ -787,7 +873,17 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
       print('1. Calulate another stud length (just like you did)')
       print('2. Back to main menu')
       print(' ')
-      another_calc_Ld = int(input("Would you like to complete another calculation? (input '1' or '2') "))
+      another_calc_Ld = int(input(f"Would you like to complete another "
+                                  f"calculation? (input '1' or '2') "))
+                                                                                    #this doesn't work (keeps reasking even if '1' or '2' is inputted)
+      while (another_calc_Ld > 1) or (another_calc_Ld < 2):
+           print(' ')
+           print("Invalid input, please input either '1' or '2'..")
+           print(' ')
+           another_calc_Ld = int(input(f"Would you like to complete "
+                                  f"another calculation? (input '1' or '2') "))
+           
+           
       while another_calc_Ld == 1:
             os.system('cls')
             quantity_linear_m_rounded, deck_num = linear_metres_decking_required()
