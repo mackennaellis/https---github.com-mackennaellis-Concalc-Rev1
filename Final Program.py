@@ -1,6 +1,13 @@
 import math
 import os
 
+#to check if number (works w deciamls)
+def is_number(input_str):
+     try:
+          float(input_str)
+          return True
+     except ValueError:
+          return False
 #invalid negative
 def invalid_negetive():
       print(' ')
@@ -85,6 +92,9 @@ def linear_metres_decking_required():
             f'Please do not include the units in your input '
             f'it is simply to tell you what units the input '
             f'should be in.')     
+      print(f"Please also note that when the units say 'millimetres' "
+            f"decimal values are invalid as they're not required, input "
+            f"whole numbers here.")
       print(' ')
       deck_num = input(f'What number deck are you calculating '
                        f'the linear metres of decking required for? ')
@@ -101,10 +111,10 @@ def linear_metres_decking_required():
       print(' ')
       width = (input(f"What is the width of the decking boards "
                         f"you're going to be using (units: millimetres)? "))
-#checking is a number
+      #checking is a number
       while not width.isdigit():
             print(' ')
-            print('Invalid input, please input a positive integer value.. ')
+            print('Invalid input, please input a whole positive integer value.. ')
             print(' ')
             width = (input(f"What is the width of the decking boards "
                         f"you're going to be using (units: millimetres)? "))
@@ -115,10 +125,10 @@ def linear_metres_decking_required():
                         f'decking boards horizontally (units: '
                         f'millimetres)? '))
       
-#checking is a number
+      #checking is a number
       while not gap.isdigit():
             print(' ')
-            print('Invalid input, please input a positive integer value.. ')
+            print('Invalid input, please input a whole positive integer value.. ')
             print(' ')
             gap = (input(f'What is the width of the gap between the '
                         f'decking boards horizontally (units: '
@@ -130,23 +140,23 @@ def linear_metres_decking_required():
       deck_width = (input(f'What is the width of the overall '
                               f'(whole) deck (units: metres)? '))
       
-#checking is a number
-      while not deck_width.isdigit():
+      #checking is a number
+      while not is_number(deck_width):
             print(' ')
             print('Invalid input, please input a positive integer value.. ')
             print(' ')
             deck_width = (input(f'What is the width of the overall '
                               f'(whole) deck (units: metres)? '))
       deck_width = float(deck_width)
-
       print(' ')
+
       deck_length = (input(f'What is the length of the overall '
                               f'(whole) deck (units: metres)? '))
 
-#checking is a number
-      while not deck_length.isdigit():
+      #checking is a number
+      while not is_number(deck_length):
             print(' ')
-            print('Invalid input, please input an integer value.. ')
+            print('Invalid input, please input a positive integer value.. ')
             print(' ')
             deck_length = (input(f'What is the length of the overall '
                               f'(whole) deck (units: metres)? '))
@@ -161,26 +171,27 @@ def linear_metres_decking_required():
             f'recommended with 10% usually being a great allowance. '
             f'At least greater then zero**')
       print(' ')
-      waste_percentage_num = (input(f'What is the waste percentage '
-                                    f'number you would like to allow '
-                                    f'(units: percentage)? '))
-#checking is a number
+      waste_percentage_num = (input(f"What is the waste percentage "
+                                    f"number you would like to allow "
+                                    f"(units: whole number (/percentage without '%' sign))? "))
+      #checking is a number
       while not waste_percentage_num.isdigit():
             print(' ')
-            print('Invalid input, please input an integer value.. ')
+            print(f'Invalid input, please input a whole positve integer '
+                  f'value.. ')
             print(' ')
-            waste_percentage_num = (input(f'What is the waste percentage '
-                                    f'number you would like to allow '
-                                    f'(units: percentage)? '))
+            waste_percentage_num = (input(f"What is the waste percentage "
+                                    f"number you would like to allow "
+                                    f"(units: whole number (/percentage "
+                                    f"without '%' sign))? "))
       waste_percentage_num = float(waste_percentage_num)
       while waste_percentage_num <= 0:
                   invalid_negetive()
-                  waste_percentage_num = float(input(f'What is the '
-                                                     f'waste percentage '
-                                    f'number you would like to allow '
-                                    f'(units: percentage)? '))
-
-
+                  waste_percentage_num = float(input(f"What is the waste "
+                                                     f"percentage "
+                                    f"number you would like to allow "
+                                    f"(units: whole number (/percentage "
+                                    f"without '%' sign))? "))
 
       os.system('cls')
 
@@ -219,10 +230,17 @@ def another_calc_linear_decking():
       print(f'1. Calulate another amount of linear metres '
             f'of decking (just like you did)')
       print('2. Back to main menu')
-      another_calc_Ld = int(input(f"Would you like to complete "
+      another_calc_Ld = (input(f"Would you like to complete "
                                   f"another calculation? (input '1' or '2') "))
       
       #checking desired_calculation is a number
+      while not another_calc_Ld.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+            another_calc_Ld = (input(f"Would you like to complete another "
+                                  f"calculation? (input '1' or '2') "))
+      another_calc_Ld = int(another_calc_Ld)
       while (another_calc_Ld < 1) or (another_calc_Ld > 2):
            print(' ')
            print("Invalid input, please input either '1' or '2'..")
@@ -243,8 +261,26 @@ def another_calcc():
       print('1. Calulate another stud length (just like you did)')
       print('2. Back to main menu')
       print(' ')
-      another_calc = int(input(f"Would you like to complete another "
+      another_calc = (input(f"Would you like to complete another "
                                f"calculation? (input '1' or '2') "))
+      
+           #checking desired_calculation is a number
+      while not another_calc.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+            another_calc = (input(f"Would you like to complete another "
+                                  f"calculation? (input '1' or '2') "))
+      another_calc = int(another_calc)
+      while (another_calc < 1) or (another_calc > 2):
+           print(' ')
+           print("Invalid input, please input either '1' or '2'..")
+           print(' ')
+           another_calc = int(input(f"Would you like to complete "
+                                  f"another calculation? (input '1' or '2') "))
+
+
+      
       return another_calc
 #STUD OPTION (2)
 def stud_length():
@@ -255,29 +291,42 @@ def stud_length():
 
       print('\033[1m' + 'Stud Length (/Raked Wall) selected: ' + '\033[0m')
       print(' ')
-      print(f'Please remember: The answers will be in the same '
-            f'measurement units you '
-            f'input. Unless stated otherwise please keep the units '
-            f'the same across '
+      print(f'Please remember: The answers will be in millimetres, so please '
+            f'input your values as this measurement value. Thus decimal '
+            f'places are not required, please only input whole numbers.'
+            f' Unless stated otherwise the units will remain the same across '
             f'all inputs (you do not have to include the units in your input, '
             f'simply input the integer value) otherwise the result/s will be '
-            f'incorrect')
+            f'incorrect.')
       print(' ')
-      units = input(f'What units are your measurements in '
-                    f'(this will be the same units '
-                  f'in the results, all units must be the same unless stated '
-                  f'otherwise)? ')
+    #  units = input(f'What units are your measurements in '
+    #                f'(this will be the same units '
+      #            f'in the results, all units must be the same unless stated '
+      #            f'otherwise)? ')
       #while units == int:
       #  invalid_negetive()
       #   units = input('What units are your measurements in? ')
-      print(' ')
+   #   print(' ')
       print(f'--------------------------------------'
             f'---------------------------------')
       print(' ')
 
-      height_outside_edge_lowest_wall = float(input(f'What is the height '
+      height_outside_edge_lowest_wall = (input(f'What is the height '
                                                     f'of the '
-                                          f'lowest wall on the outside edge? '))
+                                          f'lowest wall on the outside '
+                                          f'edge? '))
+
+
+      while not height_outside_edge_lowest_wall.isdigit():
+            print(' ')
+            print('Invalid input, please input a whole positive integer value.. ')
+            print(' ')
+            height_outside_edge_lowest_wall = (input(f'What is the height '
+                                                    f'of the '
+                                          f'lowest wall on the '
+                                          f'outside edge? '))
+      height_outside_edge_lowest_wall = float(height_outside_edge_lowest_wall)
+
       while height_outside_edge_lowest_wall < 0:
             invalid_negetive()
             height_outside_edge_lowest_wall = float(input(f'What is the '
@@ -286,16 +335,30 @@ def stud_length():
                                           f'outside edge? '))
       print(' ')
 
-      top_plate_thickness = float(input(f'What is the top plates thickness? '))
-      while top_plate_thickness < 0:
-            invalid_negetive()
-            top_plate_thickness = float(input(f'What is '
-                                              f'the top plates thickness? '))
+      top_plate_thickness = (input(f'What is the top plates thickness? '))
+      while not top_plate_thickness.isdigit():
+            print(' ')
+            print('Invalid input, please input a whole positive integer value.. ')
+            print(' ')
+            top_plate_thickness = (input(f'What is the top plates '
+                                         f'thickness? '))
+      top_plate_thickness = float(top_plate_thickness)
+
+ #     while top_plate_thickness < 0:
+  #          invalid_negetive()
+   #         top_plate_thickness = float(input(f'What is '
+  #                                            f'the top plates thickness? '))
       print(' ')
 
-      wall_angle = float(input(f'What is the angle of the wall '
-                               f'(in degrees (unit), '
-                              f'negative values (reflex angles) accepted)? '))
+      wall_angle = (input(f'What is the angle of the wall '
+                               f'(in degrees (unit))? '))
+      while not wall_angle.isdigit():
+            print(' ')
+            print('Invalid input, please input a whole positive integer value.. ')
+            print(' ')
+            wall_angle = (input(f'What is the angle of the wall '
+                               f'(in degrees (unit))? '))
+      wall_angle = float(wall_angle)
       print(' ')
 
 
@@ -304,12 +367,20 @@ def stud_length():
       plumb_cut = round(plumb_cut, 3)
 
 
-      bottom_plate_thickness = float(input(f'What is the bottom '
+      bottom_plate_thickness = (input(f'What is the bottom '
                                            f'plate thickness? '))
-      while bottom_plate_thickness < 0:
-            invalid_negetive()
-            bottom_plate_thickness = float(input(f'What is the bottom plate '
-                                                f'thickness? '))
+      while not bottom_plate_thickness.isdigit():
+            print(' ')
+            print('Invalid input, please input a whole positive integer value.. ')
+            print(' ')
+            bottom_plate_thickness = (input(f'What is the bottom '
+                                           f'plate thickness? '))
+      bottom_plate_thickness = float(bottom_plate_thickness)
+
+    #  while bottom_plate_thickness < 0:
+   #         invalid_negetive()
+   #         bottom_plate_thickness = float(input(f'What is the bottom plate '
+   #                                             f'thickness? '))
       print(' ')
 
       FIRST_SHORTEST_stud_length = (height_outside_edge_lowest_wall 
@@ -322,11 +393,11 @@ def stud_length():
             f'☲')
       print(' ')
       print(f"The 'plumb cut' is " 
-            + f'\033[1m' + f"{plumb_cut}" + f" " + f"{units}" 
+            + f'\033[1m' + f"{plumb_cut}" + f" " + f"mm" 
             f" " + '\033[0m' )
       print(' ')
       print(f'The very first (shortest) stud length in the raked wall is '
-            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
+            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"mm" + 
             f'\033[0m' + ' long')
       print(' ')
       continuee=input(f"Press " + '\033[1m' + f"ENTER" + '\033[0m' 
@@ -337,12 +408,23 @@ def stud_length():
             f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
             f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
-      stud_space_running = float(input(f"What is the running stud "
+      stud_space_running = (input(f"What is the running stud "
                                              f"spacing (the "
                                     f"distance from the very first "
                                     f"stud at the lowest side of the wall "
                                     f"to the stud you're currently "
                                     f"calculating the length of)? "))
+      while not stud_space_running.isdigit():
+            print(' ')
+            print('Invalid input, please input a whole positive integer value.. ')
+            print(' ')
+            stud_space_running = (input(f"What is the running stud "
+                                             f"spacing (the "
+                                    f"distance from the very first "
+                                    f"stud at the lowest side of the wall "
+                                    f"to the stud you're currently "
+                                    f"calculating the length of)? "))
+      stud_space_running = float(stud_space_running)
 
       while stud_space_running < 1:
             invalid_negetive()
@@ -354,16 +436,28 @@ def stud_length():
                                     f"calculating the length of)? "))
             
       print(' ')
-      what_number_stud = int(input(f"What number stud along the bottom plate "
+      what_number_stud = (input(f"What number stud along the bottom plate "
                               f"(excluding the very first one on"
                               f" the outside edge, so the miniumum "
                               f"input here is "
                               f"'2') is the one you're calculating "
                               f"the height of? "))
+      while not what_number_stud.isdigit():
+            print(' ')
+            print('Invalid input, please input a whole2 positive integer value.. ')
+            print(' ')
+            what_number_stud = (input(f"What number stud along the bottom "
+                                        f"plate "
+                              f"(excluding the very first one on"
+                              f" the outside edge, so the miniumum "
+                              f"input here is "
+                              f"'2') is the one you're calculating "
+                              f"the height of? "))
+      what_number_stud = float(what_number_stud)
 
       while what_number_stud <= 1:
             invalid_negetive()
-            what_number_stud = int(input(f"What number stud along the "
+            what_number_stud = float(input(f"What number stud along the "
                                          f"bottom plate "
                               f"(excluding the very first one on"
                               f" the outside edge, so the miniumum "
@@ -402,29 +496,30 @@ def stud_length():
       print(f'The stud length for stud number ' 
             + f'\033[1m' + f'{what_number_stud}'
             + f'\033[0m' + ' is: '  + '\033[1m' 
-            + f'{calculated_stud_length}'  + f" " + f"{units}" + '\033[0m')
+            + f'{calculated_stud_length}'  + f" " + f"mm" + '\033[0m')
       print(' ')
       print(f'This stud is ' + '\033[1m' + f'{spacing_along_top_plate}'
-            + '\033[0m' + f' ' + f'{units}' + f' along the top plate')
-  #    print(' ')
-  #    print(f"And at this stud the overall (total) wall height "
-    #        f"is " + "\033[1m" + f"{overall_wall_height} {units} " 
-     #       + f"\033[0m" + f"tall")
+            + '\033[0m' + f' ' + f'mm' + f' along the top plate')
+      print(' ')
+      print(f"And at this stud the overall (total) wall height "
+            f"is " + "\033[1m" + f"{overall_wall_height} mm " 
+            + f"\033[0m" + f"tall")
       print(' ')
       print('And once again...')
       print(' ')
       print(f"The 'plumb cut' is " 
-            + f'\033[1m' + f"{plumb_cut}" + f" " + f"{units}" 
+            + f'\033[1m' + f"{plumb_cut}" + f" " + f"mm" 
             f" " + '\033[0m' )
       print(' ')
       print(f'The very first (shortest) stud length in the raked wall is '
-            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"{units}" + 
+            f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"mm" + 
             f'\033[0m' + ' long')
       print(' ')
-      return (calculated_stud_length, what_number_stud, units, 
+      return (calculated_stud_length, what_number_stud, 
               spacing_along_top_plate, FIRST_SHORTEST_stud_length, 
               overall_wall_height)
 
+#DONE ABOVE TO HERE... (invalidation etc...)
 
 #desired_calculation = 3 ('what shape' calculation functions) TESTED AND WORK
 def calc_rectangle_area():
@@ -846,6 +941,23 @@ def goodbye_exit_screen():
     print(f'★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 '
           f'* 　.　. ° 　. ● . ★ ° . *　　　°　.　°☆')
 
+#additional linear decking function
+def another_calc_Ld_is_letter():
+     another_calc_Ld = (input(f"Would you like to complete "
+                                  f"another calculation? (input '1' or '2') "))
+     while not another_calc_Ld.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+           # another_calc_Ld = (input(f"Would you like to complete another "
+                                #  f"calculation? (input '1' or '2') "))
+            another_calc_Ld = another_calc_Ld_is_letter()
+
+           # if another_calc_Ld != another_calc_Ld.isdigit():
+         #         another_calc_Ld = float(another_calc_Ld)
+      
+     return another_calc_Ld
+
 #making (now empty) dictionary 
 finalreport = {}
 
@@ -876,9 +988,17 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
             f'required (just like you did)')
       print('2. Back to main menu')
       print(' ')
-      another_calc_Ld = int(input(f"Would you like to complete another "
+      another_calc_Ld = (input(f"Would you like to complete another "
                                   f"calculation? (input '1' or '2') "))
                                                                                     #this doesn't work (keeps reasking even if '1' or '2' is inputted)
+      
+      while not another_calc_Ld.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+            another_calc_Ld = (input(f"Would you like to complete another "
+                                  f"calculation? (input '1' or '2') "))
+      another_calc_Ld = int(another_calc_Ld)
       while (another_calc_Ld < 1) or (another_calc_Ld > 2):
            print(' ')
            print("Invalid input, please input either '1' or '2'..")
@@ -886,11 +1006,13 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
            another_calc_Ld = int(input(f"Would you like to complete "
                                   f"another calculation? (input '1' or '2') "))
            
+  
+           
            
       while another_calc_Ld == 1:
             os.system('cls')
             quantity_linear_m_rounded, deck_num = linear_metres_decking_required()
-            finalreport[f"The linear metres of decking required for deck {deck_num})"] = f"{quantity_linear_m_rounded}"
+            finalreport[f"The linear metres of decking required for deck {deck_num}"] = f"{quantity_linear_m_rounded}"
             
             another_calc_Ld = another_calc_linear_decking()
       if another_calc_Ld == 2:
@@ -902,23 +1024,47 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
 
       os.system('cls')
       #  stud_result = stud_length()
-      calculated_stud_length, what_number_stud, units, spacing_along_top_plate, FIRST_SHORTEST_stud_length, overall_wall_height = stud_length()
+      (calculated_stud_length, what_number_stud, 
+       spacing_along_top_plate, FIRST_SHORTEST_stud_length, 
+       overall_wall_height) = stud_length()
       
       finalreport[f"The very first stud length at the lowest point of the "
-                  f"wall"] = f"{FIRST_SHORTEST_stud_length} {units} long"
+                  f"wall"] = f"{FIRST_SHORTEST_stud_length} mm long"
       
-      finalreport[f"Stud length ({what_number_stud})"] = f"{calculated_stud_length} {units} long"
+      finalreport[f"Stud length ({what_number_stud})"] = (f""
+                                    f"{calculated_stud_length} mm long")
       
-      finalreport[f"Stud {what_number_stud} (above)"] = f"{spacing_along_top_plate} {units} along the top plate and at this point/stud the total wall height is {overall_wall_height} {units} tall"
-      print('-----------------------------------------------------------------------')
+      finalreport[f"Stud {what_number_stud} (above)"] = (f""
+                                          f"{spacing_along_top_plate} mm "
+                                          f"along the top plate and at this "
+                                          f"point/stud the total wall "
+                                          f"height is {overall_wall_height} "
+                                          f"mm tall")
+      print(f'--------------------------------'
+            f'---------------------------------------')
       print(' ')
       print('Next options:')
       print(' ')
       print('1. Calulate another stud length (just like you did)')
       print('2. Back to main menu')
       print(' ')
-      another_calc = int(input("Would you like to complete another "
+      another_calc = (input("Would you like to complete another "
                                f"calculation? (input '1' or '2') "))
+      
+      while not another_calc.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+            another_calc = (input(f"Would you like to complete another "
+                                  f"calculation? (input '1' or '2') "))
+      another_calc = int(another_calc)
+      while (another_calc < 1) or (another_calc > 2):
+           print(' ')
+           print("Invalid input, please input either '1' or '2'..")
+           print(' ')
+           another_calc = int(input(f"Would you like to complete "
+                                  f"another calculation? (input '1' or '2') "))
+           
       while another_calc == 1:
             os.system('cls')
             calculated_stud_length, what_number_stud, units, spacing_along_top_plate, FIRST_SHORTEST_stud_length, overall_wall_height = stud_length()
@@ -953,6 +1099,14 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
 
         what_shape = input(f"What shape's area would you like to calculate from"
                            f" the list? ")
+        
+        while not what_shape.isdigit():
+            print(' ')
+            print('Invalid input, please input a positive integer value.. ')
+            print(' ')
+            what_shape = (input(f"What shape's area would you like to calculate from"
+                           f" the list (between or equal to 1 & 6)? "))
+      
         what_shape = int(what_shape)
 
         #invalid ans                                                            
