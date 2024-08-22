@@ -92,18 +92,25 @@ def linear_metres_decking_required():
             f'Please do not include the units in your input '
             f'it is simply to tell you what units the input '
             f'should be in.')     
+      '''
       print(f"Please also note that when the units say 'millimetres' "
             f"decimal values are invalid as they're not required, input "
-            f"whole numbers here.")
+            f"whole numbers here.")'''
       print(' ')
       deck_num = input(f'What number deck are you calculating '
                        f'the linear metres of decking required for? ')
 
-          #checking is a number
-      while not deck_num.isdigit():
-            print(' ')
-            print('Invalid input, please input a positive integer value.. ')
-            print(' ')
+          #second way test (check if number and non-negative)
+      while not is_number(deck_num) or float(deck_num) < 0:
+            print('')
+
+            if not is_number(deck_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(deck_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             deck_num = (input(f'What number deck are you calculating '
                        f'the linear metres of decking required for? '))
       deck_num = float(deck_num)
@@ -111,11 +118,17 @@ def linear_metres_decking_required():
       print(' ')
       width = (input(f"What is the width of the decking boards "
                         f"you're going to be using (units: millimetres)? "))
-      #checking is a number
-      while not width.isdigit():
-            print(' ')
-            print('Invalid input, please input a whole positive integer value.. ')
-            print(' ')
+      #second way test (check if number and non-negative)
+      while not is_number(width) or float(width) < 0:
+            print('')
+
+            if not is_number(width) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(width) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             width = (input(f"What is the width of the decking boards "
                         f"you're going to be using (units: millimetres)? "))
       width = float(width)
@@ -125,11 +138,17 @@ def linear_metres_decking_required():
                         f'decking boards horizontally (units: '
                         f'millimetres)? '))
       
-      #checking is a number
-      while not gap.isdigit():
-            print(' ')
-            print('Invalid input, please input a whole positive integer value.. ')
-            print(' ')
+      #second way test (check if number and non-negative)
+      while not is_number(gap) or float(gap) < 0:
+            print('')
+
+            if not is_number(gap) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(gap) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             gap = (input(f'What is the width of the gap between the '
                         f'decking boards horizontally (units: '
                         f'millimetres)? '))
@@ -140,7 +159,23 @@ def linear_metres_decking_required():
       deck_width = (input(f'What is the width of the overall '
                               f'(whole) deck (units: metres)? '))
       
-      #checking is a number
+      #second way test (check if number and non-negative)
+      while not is_number(deck_width) or float(deck_width) < 0:
+            print('')
+
+            if not is_number(deck_width) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(deck_width) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            deck_width = (input(f'What is the width of the overall '
+                              f'(whole) deck (units: metres)? '))
+            
+      deck_width = float(deck_width)
+
+      '''#checking is a number
       while not is_number(deck_width):
             print(' ')
             print('Invalid input, please input a positive integer value.. ')
@@ -149,19 +184,37 @@ def linear_metres_decking_required():
                               f'(whole) deck (units: metres)? '))
       deck_width = float(deck_width)
       print(' ')
+      while deck_width < 0:
+            invalid_negetive()
+            deck_width = float(input(f'What is the width of the overall '
+                              f'(whole) deck (units: metres)? '))
+      '''
+      print(' ')
 
       deck_length = (input(f'What is the length of the overall '
                               f'(whole) deck (units: metres)? '))
 
-      #checking is a number
-      while not is_number(deck_length):
-            print(' ')
-            print('Invalid input, please input a positive integer value.. ')
-            print(' ')
+      #second way test (check if number and non-negative)
+      while not is_number(deck_length) or float(deck_length) < 0:
+            print('')
+
+            if not is_number(deck_length) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(deck_length) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             deck_length = (input(f'What is the length of the overall '
                               f'(whole) deck (units: metres)? '))
       deck_length = float(deck_length)
-      print(' ')
+      '''
+      deck_length = float(deck_length)
+      while deck_length < 0:
+            invalid_negetive()
+            deck_length = float(input(f'What is the length of the overall '
+                              f'(whole) deck (units: metres)? '))
+      print(' ')'''
 
       print(f'------------------------------------------'
             f'-----------------------------')
@@ -173,25 +226,32 @@ def linear_metres_decking_required():
       print(' ')
       waste_percentage_num = (input(f"What is the waste percentage "
                                     f"number you would like to allow "
-                                    f"(units: whole number (/percentage without '%' sign))? "))
-      #checking is a number
-      while not waste_percentage_num.isdigit():
-            print(' ')
-            print(f'Invalid input, please input a whole positve integer '
-                  f'value.. ')
-            print(' ')
+                                    f"(units: whole number (/percentage "
+                                    f"without '%' sign))? "))
+      #second way test (check if number and non-negative)
+      while not is_number(waste_percentage_num) or float(waste_percentage_num) < 0:
+            print('')
+
+            if not is_number(waste_percentage_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(waste_percentage_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             waste_percentage_num = (input(f"What is the waste percentage "
                                     f"number you would like to allow "
                                     f"(units: whole number (/percentage "
                                     f"without '%' sign))? "))
       waste_percentage_num = float(waste_percentage_num)
+      '''
       while waste_percentage_num <= 0:
                   invalid_negetive()
                   waste_percentage_num = float(input(f"What is the waste "
                                                      f"percentage "
                                     f"number you would like to allow "
                                     f"(units: whole number (/percentage "
-                                    f"without '%' sign))? "))
+                                    f"without '%' sign))? "))'''
 
       os.system('cls')
 
@@ -221,7 +281,7 @@ def linear_metres_decking_required():
       print(' ')
       return quantity_linear_m_rounded, deck_num
 
-def another_calc_linear_decking():
+def another_calc_linear_decking():              #THIS 2 WHILE VALIDATION COMBINE HELP
       print(f'-------------------------------------'
             f'----------------------------------')
       print(' ')
@@ -291,7 +351,7 @@ def stud_length():
 
       print('\033[1m' + 'Stud Length (/Raked Wall) selected: ' + '\033[0m')
       print(' ')
-      print(f'Please remember: The answers will be in millimetres, so please '
+      print(f'Please remember: The answers will be in millimetres, so please '      #adjust 
             f'input your values as this measurement value. Thus decimal '
             f'places are not required, please only input whole numbers.'
             f' Unless stated otherwise the units will remain the same across '
@@ -299,14 +359,15 @@ def stud_length():
             f'simply input the integer value) otherwise the result/s will be '
             f'incorrect.')
       print(' ')
-    #  units = input(f'What units are your measurements in '
-    #                f'(this will be the same units '
-      #            f'in the results, all units must be the same unless stated '
-      #            f'otherwise)? ')
-      #while units == int:
-      #  invalid_negetive()
-      #   units = input('What units are your measurements in? ')
-   #   print(' ')
+      units = input(f'What units are your measurements in '
+                    f'(this will be the same units '
+                  f'in the results, all units must be the same unless stated '
+                  f'otherwise)? ')
+      '''
+      while units == int:
+        invalid_negetive()
+        units = input('What units are your measurements in? ')'''
+      print(' ')
       print(f'--------------------------------------'
             f'---------------------------------')
       print(' ')
@@ -317,29 +378,43 @@ def stud_length():
                                           f'edge? '))
 
 
-      while not height_outside_edge_lowest_wall.isdigit():
-            print(' ')
-            print('Invalid input, please input a whole positive integer value.. ')
-            print(' ')
+      #second way test (check if number and non-negative)
+      while not is_number(height_outside_edge_lowest_wall) or float(height_outside_edge_lowest_wall) < 0:
+            print('')
+
+            if not is_number(height_outside_edge_lowest_wall) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(height_outside_edge_lowest_wall) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             height_outside_edge_lowest_wall = (input(f'What is the height '
                                                     f'of the '
-                                          f'lowest wall on the '
-                                          f'outside edge? '))
+                                          f'lowest wall on the outside '
+                                          f'edge? '))
       height_outside_edge_lowest_wall = float(height_outside_edge_lowest_wall)
-
+      '''
       while height_outside_edge_lowest_wall < 0:
             invalid_negetive()
             height_outside_edge_lowest_wall = float(input(f'What is the '
                                                           f'height of the'
                                           f' lowest wall on the '
-                                          f'outside edge? '))
+                                          f'outside edge? '))'''
       print(' ')
 
       top_plate_thickness = (input(f'What is the top plates thickness? '))
-      while not top_plate_thickness.isdigit():
-            print(' ')
-            print('Invalid input, please input a whole positive integer value.. ')
-            print(' ')
+      #second way test (check if number and non-negative)
+      while not is_number(top_plate_thickness) or float(top_plate_thickness) < 0:
+            print('')
+
+            if not is_number(top_plate_thickness) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(top_plate_thickness) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             top_plate_thickness = (input(f'What is the top plates '
                                          f'thickness? '))
       top_plate_thickness = float(top_plate_thickness)
@@ -352,10 +427,17 @@ def stud_length():
 
       wall_angle = (input(f'What is the angle of the wall '
                                f'(in degrees (unit))? '))
-      while not wall_angle.isdigit():
-            print(' ')
-            print('Invalid input, please input a whole positive integer value.. ')
-            print(' ')
+      #second way test (check if number and non-negative)
+      while not is_number(wall_angle) or float(wall_angle) < 0:
+            print('')
+
+            if not is_number(wall_angle) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(wall_angle) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             wall_angle = (input(f'What is the angle of the wall '
                                f'(in degrees (unit))? '))
       wall_angle = float(wall_angle)
@@ -369,10 +451,17 @@ def stud_length():
 
       bottom_plate_thickness = (input(f'What is the bottom '
                                            f'plate thickness? '))
-      while not bottom_plate_thickness.isdigit():
-            print(' ')
-            print('Invalid input, please input a whole positive integer value.. ')
-            print(' ')
+      #second way test (check if number and non-negative)
+      while not is_number(bottom_plate_thickness) or float(bottom_plate_thickness) < 0:
+            print('')
+
+            if not is_number(bottom_plate_thickness) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(bottom_plate_thickness) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             bottom_plate_thickness = (input(f'What is the bottom '
                                            f'plate thickness? '))
       bottom_plate_thickness = float(bottom_plate_thickness)
@@ -414,10 +503,17 @@ def stud_length():
                                     f"stud at the lowest side of the wall "
                                     f"to the stud you're currently "
                                     f"calculating the length of)? "))
-      while not stud_space_running.isdigit():
-            print(' ')
-            print('Invalid input, please input a whole positive integer value.. ')
-            print(' ')
+      #second way test (check if number and non-negative)
+      while not is_number(stud_space_running) or float(stud_space_running) < 0:
+            print('')
+
+            if not is_number(stud_space_running) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(stud_space_running) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
             stud_space_running = (input(f"What is the running stud "
                                              f"spacing (the "
                                     f"distance from the very first "
@@ -425,7 +521,7 @@ def stud_length():
                                     f"to the stud you're currently "
                                     f"calculating the length of)? "))
       stud_space_running = float(stud_space_running)
-
+      '''
       while stud_space_running < 1:
             invalid_negetive()
             stud_space_running = float(input(f"What is the running stud "
@@ -433,7 +529,7 @@ def stud_length():
                                     f"distance from the very first "
                                     f"stud at the lowest side of the wall "
                                     f"to the stud you're currently "
-                                    f"calculating the length of)? "))
+                                    f"calculating the length of)? "))'''
             
       print(' ')
       what_number_stud = (input(f"What number stud along the bottom plate "
@@ -442,19 +538,25 @@ def stud_length():
                               f"input here is "
                               f"'2') is the one you're calculating "
                               f"the height of? "))
-      while not what_number_stud.isdigit():
-            print(' ')
-            print('Invalid input, please input a whole2 positive integer value.. ')
-            print(' ')
-            what_number_stud = (input(f"What number stud along the bottom "
-                                        f"plate "
+      #second way test (check if number and non-negative)
+      while not is_number(what_number_stud) or float(what_number_stud) < 0:
+            print('')
+
+            if not is_number(what_number_stud) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(what_number_stud) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            what_number_stud = (input(f"What number stud along the bottom plate "
                               f"(excluding the very first one on"
                               f" the outside edge, so the miniumum "
                               f"input here is "
                               f"'2') is the one you're calculating "
                               f"the height of? "))
       what_number_stud = float(what_number_stud)
-
+      '''
       while what_number_stud <= 1:
             invalid_negetive()
             what_number_stud = float(input(f"What number stud along the "
@@ -463,7 +565,7 @@ def stud_length():
                               f" the outside edge, so the miniumum "
                               f"input here is "
                               f"'2') is the one you're calculating the "
-                              f"height of? "))
+                              f"height of? "))'''
 
       print(' ')
       rise_of_stud = (math.tan(wall_angle*math.pi/180)*stud_space_running)
@@ -515,9 +617,7 @@ def stud_length():
             f'\033[1m' + f'{FIRST_SHORTEST_stud_length}' + f" " + f"mm" + 
             f'\033[0m' + ' long')
       print(' ')
-      return (calculated_stud_length, what_number_stud, 
-              spacing_along_top_plate, FIRST_SHORTEST_stud_length, 
-              overall_wall_height)
+      return (calculated_stud_length, what_number_stud, spacing_along_top_plate, FIRST_SHORTEST_stud_length, overall_wall_height, units)
 
 #DONE ABOVE TO HERE... (invalidation etc...)
 
@@ -528,23 +628,71 @@ def calc_rectangle_area():
     print('')
     print('\033[1m' + 'Rectangle area selected: ')
     print('')  
-    rectangle_num = input('\033[0m' + 'What number rectangle are you calculating the area of? ')      ##
+    print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
+    print(' ')
+    rectangle_num = input('\033[0m' + f'What number rectangle are you '
+                          f'calculating the area of? ')      ##
+    #second way test (check if number and non-negative)
+    while not is_number(rectangle_num) or float(rectangle_num) < 0:
+            print('')
+
+            if not is_number(rectangle_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(rectangle_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            rectangle_num = (input(f'What number rectangle are you '
+                          f'calculating the area of? '))
+    rectangle_num = float(rectangle_num)
     print(' ')              
-    units_rec = input(f"What units (metres, centimetres, etc) are you're "          ##
+    units_rec = input(f"What units (metres, centimetres, etc) are you're "          ##put back into final report etc!!!!!!!!!!!!!
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
     print(' ')
-    width = float(input('\033[0m' + 'What is the width of the rectangle? '))
+    width = (input('\033[0m' + 'What is the width of the rectangle? '))
+    #second way test (check if number and non-negative)
+    while not is_number(width) or float(width) < 0:
+            print('')
+
+            if not is_number(width) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(width) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            width = (input(f'What is the width of the rectangle? '))
+    width = float(width)
     print('')
+    '''
     while width < 0:
             invalid_negetive()
             width = float(input('What is the width of the rectangle? '))
-            print(' ')
-    length = float(input('What is the length of the rectangle? '))
+            print(' ')'''
+    length = (input('What is the length of the rectangle? '))
+    #second way test (check if number and non-negative)
+    while not is_number(length) or float(length) < 0:
+            print('')
+
+            if not is_number(length) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(length) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            length = (input('What is the length of the rectangle? '))
+    length = float(length)
+    '''
     while length < 0:
             invalid_negetive()
             length = float(input('What is the length of the rectangle? '))
             print(' ')
+            '''
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     os.system('cls')
@@ -557,25 +705,45 @@ def calc_rectangle_area():
     rectangle_area = width * length
     rectangle_area_rounded = round(rectangle_area, 3)
     return rectangle_area_rounded, rectangle_num, units_rec
+##UP TO HEREEEEEEEEEEEEEE
 def calc_square_area():
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     print('') 
     print('\033[1m' + 'Square area selected: ')
-    print('') 
+    print('')  
+    print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
+    print(' ')
     square_num = input('\033[0m' + 'What number square are you calculating the area of? ')      ##
     print(' ')              
-    units_square = input(f"What units (metres, centimetres, etc) are you're "          ##
+    units_square = input(f"What units (metres, centimetres, etc) are you're "          ##ADD BACK INTO FINAL REPROT
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
     print(' ')
-    measurement = float(input('\033[0m' + 'What is the side length of the '
+    measurement = (input('\033[0m' + f'What is the side length of the '
                               f'square? '))
+    #second way test (check if number and non-negative)
+    while not is_number(measurement) or float(measurement) < 0:
+            print('')
+
+            if not is_number(measurement) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(measurement) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            measurement = (input(f'What is the side length of the '
+                              f'square? '))
+    measurement = float(measurement)
+    '''
     while measurement < 0:
             invalid_negetive()
             measurement = float(input(f'What is the side length of the '
                               f'square?  '))
-            print(' ')
+            print(' ')'''
 
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
@@ -595,19 +763,52 @@ def calc_circle_area():
     print(' ')
     
     print('\033[1m' + 'Circle area selected: ')
+    print('')  
+    print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
     print(' ')
-    circle_num = input('\033[0m' + 'What number circle are you calculating the area of? ')      ##
+    circle_num = input('\033[0m' + f'What number circle are you calculating '
+                       f'the area of? ') 
+    #second way test (check if number and non-negative)
+    while not is_number(circle_num) or float(circle_num) < 0:
+            print('')
+
+            if not is_number(circle_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(circle_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            circle_num = (input(f'What number circle are you calculating '
+                       f'the area of? '))
+    circle_num = float(circle_num)     ##
     print(' ')              
     units_circle = input(f"What units (metres, centimetres, etc) are you're "          ##
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
     print(' ')
-    radius = float(input(f'\033[0m' + 'What is the radius of the circle? '))
+    radius = (input(f'\033[0m' + f'What is the radius of the circle? '))
+    #second way test (check if number and non-negative)
+    while not is_number(radius) or float(radius) < 0:
+            print('')
+
+            if not is_number(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            radius = (input(f'What is the radius of the circle? '))
+    radius = float(radius)
     print(' ')
+    '''
     while radius < 0:
             invalid_negetive()
             radius = float(input(f'What is the radius of the circle? '))
-            print(' ')
+            print(' ')'''
     print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     os.system('cls')
@@ -625,24 +826,72 @@ def calc_cylinder_area():
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     print(' ')       
     print('\033[1m' + 'Cylinder (Surface Area) selected: ')
+    print('')  
+    print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
     print(' ')
-    cylinder_num = input('\033[0m' + 'What number cylinder are you calculating the area of? ')      ##
+    cylinder_num = input('\033[0m' + f'What number cylinder are '
+                         f'you calculating the area of? ')      ##
+    #second way test (check if number and non-negative)
+    while not is_number(cylinder_num) or float(cylinder_num) < 0:
+            print('')
+
+            if not is_number(cylinder_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(cylinder_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            cylinder_num = (input(f'What number cylinder are '
+                         f'you calculating the area of? '))
+    cylinder_num = float(cylinder_num)
     print(' ')              
     units_cylinder = input(f"What units (metres, centimetres, etc) are you're "          ##
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
     print(' ')
-    radius = float(input('\033[0m' + 'What is the radius of the cylinder? ')) 
+    radius = (input('\033[0m' + f'What is the radius of the cylinder? '))
+    #second way test (check if number and non-negative)
+    while not is_number(radius) or float(radius) < 0:
+            print('')
+
+            if not is_number(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            radius = (input(f'What is the radius of the cylinder? '))
+    radius = float(radius) 
     print(' ')
+    '''
     while radius < 0:
             invalid_negetive()
             radius = float(input(f'What is the radius of the cylinder? '))
-            print(' ')
-    height = float(input('What is the height of the cylinder? '))
+            print(' ')'''
+    height = (input('What is the height of the cylinder? '))
+    #second way test (check if number and non-negative)
+    while not is_number(height) or float(height) < 0:
+            print('')
+
+            if not is_number(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            height = (input('What is the height of the cylinder? '))
+    height = float(height) 
+    print(' ')
+    '''
     while height < 0:
             invalid_negetive()
-            radius = float(input(f'What is the height of the cylinder? '))
-            print(' ')
+            height = float(input(f'What is the height of the cylinder? '))
+            print(' ')'''
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     os.system('cls')
@@ -660,20 +909,67 @@ def calc_triangle_area():
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
     print(' ')
     print('\033[1m' + 'Triangle area selected: ')
+    print('')  
+    print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
     print(' ')
-    triangle_num = input('\033[0m' + 'What number triangle are you calculating the area of? ')      ##
+    triangle_num = input('\033[0m' + f'What number triangle are you '
+                         f'calculating the area of? ')      ##
+    #second way test (check if number and non-negative)
+    while not is_number(triangle_num) or float(triangle_num) < 0:
+            print('')
+
+            if not is_number(triangle_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(triangle_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            triangle_num = (input(f'What number triangle are you '
+                         f'calculating the area of? '))
+    triangle_num = float(triangle_num) 
     print(' ')              
     units_triangle = input(f"What units (metres, centimetres, etc) are you're "          ##
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
     print(' ')
-    height = float(input('\033[0m' +'What is the height of the triangle? '))
+    height = (input('\033[0m' +'What is the height of the triangle? '))
+    #second way test (check if number and non-negative)
+    while not is_number(height) or float(height) < 0:
+            print('')
+
+            if not is_number(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            height = (input(f'What is the height of the triangle? '))
+    height = float(height)
     print(' ')
+    '''
     while height < 0:
             invalid_negetive()
-            radius = float(input(f'What is the height of the triangle? '))
-            print(' ')
-    base = float(input("What is the length of the triangle's base? "))
+            height = float(input(f'What is the height of the triangle? '))
+            print(' ')'''
+
+    base = (input("What is the length of the triangle's base? "))
+    #second way test (check if number and non-negative)
+    while not is_number(base) or float(base) < 0:
+            print('')
+
+            if not is_number(base) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(base) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            base = (input("What is the length of the triangle's base? "))
+    base = float(base)
     while base < 0:
             invalid_negetive()
             base = float(input(f"What is the length of the triagle's base? "))
@@ -698,35 +994,95 @@ def calc_cuboid_volume():
                   f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
       print('\033[1m' + 'Cuboid volume selected: ')
+      print('')  
+      print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
       print(' ')
       cubiod_num = input(f'\033[0m' + f'What number cuboid are you '
                          f'calculating the volume of? ')      ##
+      #second way test (check if number and non-negative)
+      while not is_number(cubiod_num) or float(cubiod_num) < 0:
+            print('')
+
+            if not is_number(cubiod_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(cubiod_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            cubiod_num = (input(f'What number cuboid are you '
+                         f'calculating the volume of? '))
+      cubiod_num = float(cubiod_num)
       print(' ')              
       units_cuboid = input(f"What units (metres, centimetres, etc) are you're "          ##
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
       print(' ')
-      height = float(input(f'\033[0m' + 'What is the height of the '
+      height = (input(f'\033[0m' + f'What is the height of the '
                               f'cuboid? ')) 
+      #second way test (check if number and non-negative)
+      while not is_number(height) or float(height) < 0:
+            print('')
+
+            if not is_number(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print('')
+            height = (input(f'What is the height of the '
+                              f'cuboid? '))
+      height = float(height)
+      '''
       while height < 0:
             invalid_negetive()
             height = float(input(f'What is the height of the cuboid? '))
-            print(' ')
-      #'float' allows for decimals as builders work to decimals 
+            print(' ')'''
 
       print(' ')
-      width = float(input('What is the width of the cuboid? '))
+      width = (input('What is the width of the cuboid? '))
+      #second way test (check if number and non-negative)
+      while not is_number(width) or float(width) < 0:
+            print(' ')
+
+            if not is_number(width) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(width) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            width = (input('What is the width of the cuboid? '))
+      width = float(width)
       print(' ')
+      '''
       while width < 0:
             invalid_negetive()
             width = float(input(f'What is the width of the cuboid? '))
-            print(' ')
+            print(' ')'''
       depth = float(input('What is the depth of the cuboid? '))
+      #second way test (check if number and non-negative)
+      while not is_number(depth) or float(depth) < 0:
+            print(' ')
+
+            if not is_number(depth) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(depth) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            depth = (input('What is the depth of the cuboid? '))
+      depth = float(depth)
       print(' ')
+      '''
       while depth < 0:
             invalid_negetive()
             depth = float(input(f'What is the depth of the cuboid? '))
-            print(' ')
+            print(' ')'''
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
@@ -747,22 +1103,55 @@ def calc_cube_volume():
                   f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
       print('\033[1m' + 'Cube volume selected: ')
+      print('')  
+      print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
       print(' ')
       cube_num = input(f'\033[0m' + f'What number cube are you '
                        f'calculating the volume of? ')      ##
+      #second way test (check if number and non-negative)
+      while not is_number(cube_num) or float(cube_num) < 0:
+            print(' ')
+
+            if not is_number(cube_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(cube_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            cube_num = (input(f'What number cube are you '
+                       f'calculating the volume of? '))
+      cube_num = float(cube_num)
       print(' ')              
       units_cube = input(f"What units (metres, centimetres, etc) are you're "          ##
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
       print(' ')
-      measurement = float(input(f'\033[0m' + 'What is the side length'
+      measurement = (input(f'\033[0m' + f'What is the side length'
                               f' of the cube? '))
+      #second way test (check if number and non-negative)
+      while not is_number(measurement) or float(measurement) < 0:
+            print(' ')
+
+            if not is_number(measurement) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(measurement) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            measurement = (input(f'What is the side length'
+                              f' of the cube? '))
+      measurement = float(measurement)
       print(' ')
+      '''
       while measurement < 0:
             invalid_negetive()
             measurement = float(input(f'What is the side length'
                               f' of the cube? '))
-            print(' ')
+            print(' ')'''
 
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -784,28 +1173,75 @@ def calc_cylinder_volume():
       f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
       print('\033[1m' + 'Cylinder volume selected: ')
+      print('')  
+      print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
       print(' ')
       cylinder_num = input(f'\033[0m' + f'What number cylinder are '
                            f'you calculating the volume of? ')      ##
+      #second way test (check if number and non-negative)
+      while not is_number(cylinder_num) or float(cylinder_num) < 0:
+            print(' ')
+
+            if not is_number(cylinder_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(cylinder_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            cylinder_num = (input(f'What number cylinder are '
+                           f'you calculating the volume of? '))
+      cylinder_num = float(cylinder_num)
       print(' ')              
       units_cylinder = input(f"What units (metres, centimetres, etc) are "
                              f"you're "          ##
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
       print(' ')
-      height = float(input(f'\033[0m' + 'What is the height of the '
+      height = (input(f'\033[0m' + f'What is the height of the '
                               f'cylinder? '))
+      #second way test (check if number and non-negative)
+      while not is_number(height) or float(height) < 0:
+            print(' ')
+
+            if not is_number(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            height = (input(f'What is the height of the '
+                              f'cylinder? '))
+      height = float(height)
       print(' ')
+      '''
       while height < 0:
             invalid_negetive()
             height = float(input(f'What is the height of the cylinder? '))
+            print(' ')'''
+      radius = (input('What is the radius of the cylinder? '))
+      #second way test (check if number and non-negative)
+      while not is_number(radius) or float(radius) < 0:
             print(' ')
-      radius = float(input('What is the radius of the cylinder? '))
+
+            if not is_number(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            radius = (input('What is the radius of the cylinder? '))
+      radius = float(radius)
       print(' ')
+      '''
       while radius < 0:
             invalid_negetive()
             radius = float(input(f'What is the radius of the cylinder? '))
-            print(' ')
+            print(' ')'''
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
@@ -826,27 +1262,74 @@ def calc_cone_volume():
       f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')       
       print('\033[1m' + 'Cone volume selected: ')
+      print('')  
+      print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
       print(' ')
       cone_num = input(f'\033[0m' + f'What number cone are you '
                        f'calculating the volume of? ')      ##
+      #second way test (check if number and non-negative)
+      while not is_number(cone_num) or float(cone_num) < 0:
+            print(' ')
+
+            if not is_number(cone_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(cone_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            cone_num = (input(f'What number cone are you '
+                       f'calculating the volume of? '))
+      cone_num = float(cone_num)
       print(' ')              
       units_cone = input(f"What units (metres, centimetres, etc) are you're "          ##
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
       print(' ')
-      height = float(input(f'\033[0m' + 'What is the height of the '
+      height = (input(f'\033[0m' + f'What is the height of the '
                               f'cone? '))
+     #second way test (check if number and non-negative)
+      while not is_number(height) or float(height) < 0:
+            print(' ')
+
+            if not is_number(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(height) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            height = (input(f'What is the height of the '
+                              f'cone? '))
+      height = float(height)
       print(' ')
+      '''
       while height < 0:
             invalid_negetive()
             height = float(input(f'What is the height of the cone? '))
+            print(' ')'''
+      radius = (input('What is the radius of the cone? '))
+      #second way test (check if number and non-negative)
+      while not is_number(radius) or float(radius) < 0:
             print(' ')
-      radius = float(input('What is the radius of the cone? '))
+
+            if not is_number(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            radius = (input('What is the radius of the cone? '))
+      radius = float(radius)
       print(' ')
+      '''
       while radius < 0:
             invalid_negetive()
             radius = float(input(f'What is the radius of the cone? '))
-            print(' ')
+            print(' ')'''
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
@@ -867,20 +1350,52 @@ def calc_sphere_volume():
       f'☲☲☲☲☲☲☲☲☲☲☲')
       print(' ')
       print('\033[1m' + 'Sphere volume selected: ')
+      print('')  
+      print('\033[0m' + f"Please keep all inputs to whole numbers, "
+          f"for the most specific outcomes the unit 'millimetres' "
+          f"is recommended")
       print(' ')
       sphere_num = input(f'\033[0m' + f'What number sphere are you '
                          f'calculating the volume of? ')      ##
+      #second way test (check if number and non-negative)
+      while not is_number(sphere_num) or float(sphere_num) < 0:
+            print(' ')
+
+            if not is_number(sphere_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(sphere_num) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            sphere_num = (input(f'What number sphere are you '
+                         f'calculating the volume of? '))
+      sphere_num = float(sphere_num)
       print(' ')              
       units_sphere = input(f"What units (metres, centimetres, etc) are you're "          ##
                       f"measurements in (please keep them the same for "
                       f"each input unless asked for differently)? ")
       print(' ')
-      radius = float(input('\033[0m' + 'What is the radius of the sphere? '))
+      radius = (input('\033[0m' + 'What is the radius of the sphere? '))
+      #second way test (check if number and non-negative)
+      while not is_number(radius) or float(radius) < 0:
+            print(' ')
+
+            if not is_number(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            elif float(radius) < 0:
+                  print('Invalid input, please input a positive integer value.. ')
+
+            print(' ')
+            radius = (input('What is the radius of the sphere? '))
+      radius = float(radius)
       print(' ')
+      '''
       while radius < 0:
             invalid_negetive()
             radius = float(input(f'What is the radius of the sphere? '))
-            print(' ')
+            print(' ')'''
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲')
@@ -941,11 +1456,11 @@ def goodbye_exit_screen():
     print(f'★ ° . *　　　°　.　°☆ 　. * ● ¸ . 　　　★ 　° :. ★　 * • ○ ° ★ .　 '
           f'* 　.　. ° 　. ● . ★ ° . *　　　°　.　°☆')
 
-#additional linear decking function
+#additional linear decking function             #could change to otherway
 def another_calc_Ld_is_letter():
      another_calc_Ld = (input(f"Would you like to complete "
                                   f"another calculation? (input '1' or '2') "))
-     while not another_calc_Ld.isdigit():
+     while not another_calc_Ld.isdigit():                                           
             print(' ')
             print('Invalid input, please input a positive integer value.. ')
             print(' ')
@@ -990,9 +1505,9 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
       print(' ')
       another_calc_Ld = (input(f"Would you like to complete another "
                                   f"calculation? (input '1' or '2') "))
-                                                                                    #this doesn't work (keeps reasking even if '1' or '2' is inputted)
+                                                                                    
       
-      while not another_calc_Ld.isdigit():
+      while not another_calc_Ld.isdigit():                                          #ANOTHER LOOP THESE 2 HERE
             print(' ')
             print('Invalid input, please input a positive integer value.. ')
             print(' ')
@@ -1026,7 +1541,7 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
       #  stud_result = stud_length()
       (calculated_stud_length, what_number_stud, 
        spacing_along_top_plate, FIRST_SHORTEST_stud_length, 
-       overall_wall_height) = stud_length()
+       overall_wall_height, units) = stud_length()
       
       finalreport[f"The very first stud length at the lowest point of the "
                   f"wall"] = f"{FIRST_SHORTEST_stud_length} mm long"
@@ -1051,7 +1566,7 @@ while desired_calculation != 5:     #as long as it isn't '6' it does this
       another_calc = (input("Would you like to complete another "
                                f"calculation? (input '1' or '2') "))
       
-      while not another_calc.isdigit():
+      while not another_calc.isdigit():               #ANOTHER LOOP THESE 2 HERE
             print(' ')
             print('Invalid input, please input a positive integer value.. ')
             print(' ')
