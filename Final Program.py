@@ -332,7 +332,7 @@ def stud_length():
             f'simply input the integer value) otherwise the result/s will be '
             f'incorrect.')
       print(' ')
-      print(f'Please also rember to input whole numbers during this operation')
+      print(f'Please also remember to input whole numbers during this operation')
       print(' ')
       units = input(f'What units are your measurements in? ')
       while units.isdigit():
