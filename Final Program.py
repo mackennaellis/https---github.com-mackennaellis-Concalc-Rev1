@@ -1,22 +1,39 @@
+
+
+
+# Imports required throughout the program
 import math
 import os
 
-#to check if number (works w deciamls)
+
 def is_number(input_str):
+     '''Checks if user input is a digit (works with deciamls)
+     It trials the input_str as a float and if it's okay returns 'True'
+     '''
      try:
           float(input_str)
           return True
      except ValueError:
           return False
-#invalid negative
+
 def invalid_negetive():
+      '''Invalid negative - Checks if a digit is negative
+      
+      This function is what is printed when a users input is negative and
+      therefore is invalid
+      '''
       print(' ')
       print(f'Invalid input, please input a more ' + '\033[1m' + f'positive' +
             '\033[0m' + f' number')
       print(' ')
 
-#Main Program
+# Main Program (The opening welcome screen)
 def main_program_1st_display():
+    '''Prints the users welcome screen, and then asks the user which 
+    calculation from the list they'd like the calculate.
+    Once the user has inputted their value it tests if the value is invalid.
+    Invalid in this function means that the input is not a number'''
+
     print(f'\n☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
           f'☲☲☲'
           f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -50,8 +67,7 @@ def main_program_1st_display():
     desired_calculation = (input(f'What calculation would you like to '
                                     f'complete from the list/s? '))
     
-    
-    #checking desired_calculation is a number
+    # Checking desired_calculation is a number
     while not desired_calculation.isdigit():
       print(' ')
       print('Invalid input, please input a positive integer value.. ')
@@ -62,8 +78,12 @@ def main_program_1st_display():
 
     return desired_calculation
 
-#desired_calculation invalid
+# Desired_calculation invalid
 def desired_calculation_invalid():
+      '''The printed text that appears when the user's input for 
+      desired_calculation is invalid (less then 1 or greater then 
+      6 or a decimal). It then asks for another input that fits the conditions.
+      '''
       print(' ')
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
       f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -77,8 +97,16 @@ def desired_calculation_invalid():
       desired_calculation = int(desired_calculation)
       return desired_calculation
 
-#DECKING OPTION (1) (a couple calcs over 80 spaces)
+# Decking option (1)
 def linear_metres_decking_required():
+      '''This function contains the calculations required to find the 
+      linear-metres of decking required. The code specificies how units work
+      throughout this operation, asks for several different inputs, and for 
+      each input tests if it is a digit of not - with decimals accepted but 
+      not negatives. It also explains some terminology where it may be needed.
+
+      Then the code calculates the amount of linear-metres of decking required 
+      for the user's deck.'''
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
             f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -92,10 +120,10 @@ def linear_metres_decking_required():
             f'it is simply to tell you what units the input '
             f'should be in.')     
       print(' ')
+
       deck_num = input(f'What number deck are you calculating '
                        f'the linear metres of decking required for? ')
-
-      #input validation
+      # Input validation for deck_num
       while not is_number(deck_num) or float(deck_num) < 0:
             print('')
 
@@ -111,11 +139,11 @@ def linear_metres_decking_required():
             deck_num = (input(f'What number deck are you calculating '
                        f'the linear metres of decking required for? '))
       deck_num = float(deck_num)
-
       print(' ')
+
       width = (input(f"What is the width of the decking boards "
                         f"you're going to be using (units: millimetres)? "))
-
+      # Input validation for width
       while not is_number(width) or float(width) < 0:
             print('')
 
@@ -136,7 +164,7 @@ def linear_metres_decking_required():
       gap = (input(f'What is the width of the gap between the '
                         f'decking boards horizontally (units: '
                         f'millimetres)? '))
-      
+      # Input validation for gap
       while not is_number(gap) or float(gap) < 0:
             print('')
 
@@ -153,12 +181,11 @@ def linear_metres_decking_required():
                         f'decking boards horizontally (units: '
                         f'millimetres)? '))
       gap = float(gap)
-
       print(' ')
 
       deck_width = (input(f'What is the width of the overall '
                               f'(whole) deck (units: metres)? '))
-      
+      # Input validation for deck_width
       while not is_number(deck_width) or float(deck_width) < 0:
             print('')
 
@@ -172,22 +199,20 @@ def linear_metres_decking_required():
 
             print('')
             deck_width = (input(f'What is the width of the overall '
-                              f'(whole) deck (units: metres)? '))
-            
+                              f'(whole) deck (units: metres)? '))         
       deck_width = float(deck_width)
-
       print(' ')
 
       deck_length = (input(f'What is the length of the overall '
                               f'(whole) deck (units: metres)? '))
-
+      # Input validation for deck_length
       while not is_number(deck_length) or float(deck_length) < 0:
             print('')
 
             if not is_number(deck_length) < 0:
                   print(f'Invalid input, please input a '
                         f'positive integer value.. ')
-
+                  
             elif float(deck_length) < 0:
                   print(f'Invalid input, please input a '
                         f'positive integer value.. ')
@@ -201,6 +226,7 @@ def linear_metres_decking_required():
       print(f'------------------------------------------'
             f'-----------------------------')
       print(' ')
+      # Explains what a waste percentage is
       print(f'**A waste percentage is how much waste (extra) '
             f'are you allowing for. Between 5 - 15% is '
             f'recommended with 10% usually being a great allowance. '
@@ -210,6 +236,7 @@ def linear_metres_decking_required():
                                     f"number you would like to allow "
                                     f"(units: whole number (/percentage "
                                     f"without '%' sign))? "))
+      # Input validation for waste_percentage_num
       while not (is_number(waste_percentage_num) or 
                  float(waste_percentage_num) < 0):
             print('')
@@ -231,18 +258,22 @@ def linear_metres_decking_required():
       
       os.system('cls')
 
+      # Calculations start here
       decking_area = deck_width * deck_length
       decking_area_rounded = round(decking_area, 3)
 
       waste_percentage = (waste_percentage_num / 100) + 1
 
-      #Amount in m^2 one linear metre (board) takes up
+      # Amount in m^2 one linear metre (board) takes up
       decking_area_in_m2 = (gap + width) / 1000
 
+      # How much liner-metres of decking is actually required
       quantity_linear_m = (((decking_area) / decking_area_in_m2) 
                            * waste_percentage)
       quantity_linear_m_rounded = round(quantity_linear_m, 3)
 
+      # Prints the amount of liner-metres of decking required for the user 
+      # to see
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
             f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
                   f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -257,7 +288,17 @@ def linear_metres_decking_required():
       print(' ')
       return quantity_linear_m_rounded, deck_num
 
-def another_calc_linear_decking():            
+# If the user wants to calculate another amount of liner-metres of decking
+def another_calc_linear_decking():   
+      '''This function asks the user if they'd like to complete another
+      calculation of the amount of liner-metres of decking required, it provides
+      them with a list of options to choose from as explained on the 
+      welcome/home screen. 
+      The code checks if the user's input is valid by 
+      seeing if it is a '1' or '2', if it is the test is finished and the 
+      value is valid. If not the code checks why it is invalid by seeing if it's
+      a digit (decimals and negatives are also invalid) and if the input is 
+      invalid asks the user for another.'''         
       print(f'-------------------------------------'
             f'----------------------------------')
       print(' ')
@@ -269,7 +310,8 @@ def another_calc_linear_decking():
       another_calc_Ld = (input(f"Would you like to complete "
                                   f"another calculation? (input '1' or '2') "))
       
-      #checking another_calc_Ld isn't decimal, or letter or anything but 1 or 2
+      # Checks another_calc_Ld isn't decimal, or letter or anything other then
+      # a 1 or 2.
       while True:
             if ((another_calc_Ld) == '1' or (another_calc_Ld) == '2'):
                another_calc_Ld = int(another_calc_Ld)
@@ -287,7 +329,6 @@ def another_calc_linear_decking():
                   another_calc_Ld = (input(f"Would you like to complete "
                                   f"another "
                                   f"calculation? (input '1' or '2'): "))
-
       another_calc_Ld = int(another_calc_Ld)
 
       return another_calc_Ld
@@ -459,8 +500,8 @@ def stud_length():
                               f"the height of? "))
       while not what_number_stud.isdigit() or float(what_number_stud) <= 1:
             print(' ')
-            print(f"Invalid input, please input a whole '
-                        f'positive integer value greater then '1'.. ")
+            print(f"Invalid input, please input a whole "
+                  f"positive integer value greater then (1).. ")
             print(' ')
             what_number_stud = (input(f"What number stud along the "
                                       f"bottom plate "
