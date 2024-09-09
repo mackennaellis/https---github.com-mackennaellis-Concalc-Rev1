@@ -4,10 +4,10 @@
 import math
 import os
 
-#Checks if input is a number
+# Checks if input is a number
 def is_number(input_str):
      '''Checks if user input is a digit in a way that accepts decimal and 
-     negative values as well
+     negative values as well.
      '''
      try:
           float(input_str)
@@ -22,10 +22,10 @@ def invalid_negetive():
       This function is what is printed when a users input is negative and
       therefore is invalid
       '''
-      print(' ')
+      print('')
       print(f'Invalid input, please input a more ' + '\033[1m' + f'positive' +
             '\033[0m' + f' number')
-      print(' ')
+      print('')
 
 # Main Program (The opening welcome screen)
 def main_program_1st_display():
@@ -91,7 +91,7 @@ def desired_calculation_invalid():
       print(' ')
       print(f'Invalid input, try a number between 1 and 6 from the list '
       f'(above)')
-      print(' ')
+      print('')
       desired_calculation = input(f"What calculation would you like to "
                                     f"complete from the list/s?  ")
       desired_calculation = int(desired_calculation)
@@ -1617,7 +1617,7 @@ def calc_sphere_volume():
 
       return sphere_volume_rounded, sphere_num, units_sphere
 
-#WHAT SHAPE INVAILD
+# Input validation for what_shape
 def what_shape_invalid():
       print(' ')
       print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
@@ -2007,9 +2007,9 @@ while desired_calculation != 5:
             os.system('cls')
 
             # Displays the list of area calculations avaliable
-            print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-                        f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
-                        f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲')
+            print(f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲☲'
+                  f'☲☲☲☲☲☲☲☲☲☲☲☲')
             print(' ')
             print('\033[1m' + 'Shape volumes avaliable: ')
             print(' ')
